@@ -14,17 +14,17 @@
 
                 if (H != 23 && A >= 60) {
                     if((A/60)+H >= 24) {
-                        System.out.println(((H-24)+(A/60) + " " + (A%60)));
+                        System.out.println((H-24)+(A/60) + " " + A%60);
                     }
                     else {
-                    System.out.println((H+(A/60)) + " " + (A%60));
+                    System.out.println(H+(A/60) + " " + A%60);
                     }
                 }
                 else if (H != 23 && A < 60) {
-                    System.out.println(H+((A/60)) + " " + (A%60));
+                    System.out.println(H+(A/60) + " " + A%60);
                 }
                 else {
-                    System.out.println(((H-24)+(A/60) + " " + (A%60)));
+                    System.out.println((H-24)+(A/60) + " " + A%60);
                 }
             }
         }
