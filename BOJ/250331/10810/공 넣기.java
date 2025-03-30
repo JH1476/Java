@@ -11,18 +11,23 @@ public class Main {
 
         int[] a = new int[N];
 
-        for(int n = 0; n < M; n++) {
+        for (int m = 0; m < N; m++) {
+            a[m] = 0;
+        }
+
+        for (int n = 0; n < M; n++) {
             StringTokenizer st1 = new StringTokenizer(br.readLine());
             int i = Integer.parseInt(st1.nextToken());
             int j = Integer.parseInt(st1.nextToken());
             int k = Integer.parseInt(st1.nextToken());
 
-            while(i <= j) {
+            while (i <= j) {
                 a[i-1] = k;
                 i++;
             }
         }
-        for(int i = 0; i < N; i++) {
+
+        for (int i = 0; i < N; i++) {
             System.out.print(a[i] + " ");
         }
     }
