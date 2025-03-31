@@ -55,17 +55,15 @@ class Iteration1 {
                 System.out.println(str2[first] + " " + str2[last]);
                 first++;
                 last--;
-                if (first == last) {
-                    return;
-                }
             } else if (sum < num) {
                 first++;
             } else {
                 last--;
+                if (first == last) {
+                    System.out.println("pair not found");
+                    return;
+                }
             }
-        }
-        if (first == last) {
-            System.out.println("pair not found");
         }
     }
 }
