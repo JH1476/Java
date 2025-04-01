@@ -4,9 +4,9 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st1 = new StringTokenizer(br.readLine());
-        int N = Integer.parseInt(st1.nextToken());
-        int M = Integer.parseInt(st1.nextToken());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
         int[] a = new int[N];
         int temp = 0;
 
@@ -15,9 +15,9 @@ public class Main {
         }
 
         for (int k = 0; k < M; k++) {
-            StringTokenizer st2 = new StringTokenizer(br.readLine());
-            int left = Integer.parseInt(st2.nextToken())-1;
-            int right = Integer.parseInt(st2.nextToken())-1;
+            st = new StringTokenizer(br.readLine());
+            int left = Integer.parseInt(st.nextToken())-1;
+            int right = Integer.parseInt(st.nextToken())-1;
             while (right > 0 && left < right) {
                 temp = a[left];
                 a[left] = a[right];
