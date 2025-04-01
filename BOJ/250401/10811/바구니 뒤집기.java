@@ -30,7 +30,5 @@ public class Main {
         for(int n = 0; n < N; n++) {
             System.out.print(a[n] + " ");
         }
-
-
     }
 }
