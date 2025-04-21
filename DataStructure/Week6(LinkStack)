@@ -1,0 +1,93 @@
+import java.util.*;
+import java.io.*;
+
+public class DataStructure6 {
+    public static int calc_postfix(String[] arr) {
+        ListStack2 ls = new ListStack2();
+        int i = 0;
+        while(i < arr.length) {
+            if (!arr[i].equals("*") && !arr[i].equals("/") && !arr[i].equals("+") && !arr[i].equals("-")) {
+                ls.push(Integer.parseInt(arr[i]));
+                i++;
+            } else {
+                int a = ls.pop();
+                int b = ls.pop();
+                int result = 0;
+                if (arr[i].equals("*")) {
+                    result = b*a;
+                }
+                if (arr[i].equals("/")) {
+                    result = b/a;
+                }
+                if (arr[i].equals("+")) {
+                    result = b+a;
+                }
+                if (arr[i].equals("-")) {
+                    result = b-a;
+                }
+                ls.push(result);
+                i++;
+            }
+        }
+        return ls.pop();
+    }
+
+    public static void main(String[] args) throws IOException {
+        try {
+            File file = new File("test.txt");
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+
+            String line = null;
+
+            while ((line = br.readLine()) != null) {
+                String[] str1 = line.split(" ");
+                System.out.println(calc_postfix(str1));
+            }
+            br.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("file not found");
+        } catch (IOException e) {
+            System.out.println("I/O exception");
+        }
+    }
+}
+
+class Node2 {
+    private int item;
+    private Node2 next;
+    public Node2(int newItem, Node2 node) {
+        item = newItem;
+        next = node;
+    }
+
+    public int getItem() {return item;}
+    public Node2 getNext() {return next;}
+    public void setItem(int newItem) {item = newItem;}
+    public void setNext(Node2 newNext) {next = newNext;}
+}
+
+class ListStack2 {
+    private Node2 top;
+    public ListStack2() {
+        top = null;
+    }
+
+    public boolean isEmpty() { return top == null;}
+
+    public void push(int newItem) {
+        Node2 newNode = new Node2(newItem, top);
+        top = newNode;
+    }
+
+    public int pop() {
+        if(isEmpty()) {
+            System.out.println("stack is empty");
+            throw new EmptyStackException();
+        }
+        int topItem = top.getItem();
+        top = top.getNext();
+        return topItem;
+    }
+}
